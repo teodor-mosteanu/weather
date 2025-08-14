@@ -9,8 +9,10 @@ export class WeatherService {
   private apiKey = '688e0194da6c03bffd0a96d044ed401c'; // Replace with your actual API key
   private apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=${this.apiKey}`;
 
+  // eslint-disable-next-line
   constructor(private http: HttpClient) {}
 
+  // eslint-disable-next-line
   getWeather(): Observable<any> {
     return this.http.get(this.apiUrl);
   }

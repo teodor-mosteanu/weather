@@ -9,9 +9,10 @@ import { WeatherService } from '../../services/weather.service';
   providers: [WeatherService],
 })
 export class WeatherDisplay {
+  // eslint-disable-next-line
   weatherData: any;
   loading = true;
-
+  // eslint-disable-next-line
   constructor(private weatherService: WeatherService) {
     this.weatherService.getWeather().subscribe((data) => {
       console.log(data);

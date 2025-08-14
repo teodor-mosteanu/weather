@@ -3,7 +3,6 @@ import { WeatherDisplay } from './weather-display';
 import { WeatherService } from '../../services/weather.service';
 import { of, throwError } from 'rxjs';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 describe('WeatherDisplay', () => {
   let component: WeatherDisplay;
