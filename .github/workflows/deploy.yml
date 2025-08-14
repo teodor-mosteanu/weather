@@ -80,18 +80,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=high --fail-on=upgradable
+      - name: Install Snyk CLI
+        run: npm install -g snyk
 
-      - name: Upload Snyk results to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
-        if: always()
-        with:
-          sarif_file: snyk.sarif
+      - name: Run Snyk security scan (no auth)
+        run: snyk test --severity-threshold=high
+        continue-on-error: false
+
+      - name: Run npm audit as backup
+        run: npm audit --audit-level=high
+        if: failure()
 
   build:
     runs-on: ubuntu-latest
