@@ -9,7 +9,7 @@ import { WeatherService } from '../../services/weather.service';
   providers: [WeatherService],
 })
 export class WeatherDisplay {
-  protected weatherData: any;
+  weatherData: any;
   loading = true;
 
   constructor(private weatherService: WeatherService) {
