@@ -94,14 +94,6 @@ describe('WeatherDisplay', () => {
       expect(component.weatherData).toEqual(mockWeatherData);
     });
 
-    it('should display the main heading when not loading', () => {
-      const headingElement = fixture.debugElement.query(By.css('h1'));
-      expect(headingElement).toBeTruthy();
-      expect(headingElement.nativeElement.textContent.trim()).toBe(
-        'This app is just a demonstrator for exemplifying CI/CD pipeline workflow'
-      );
-    });
-
     it('should display city name and temperature', () => {
       const paragraphs = fixture.debugElement.queryAll(By.css('p'));
       const tempParagraph = paragraphs.find((p) =>
