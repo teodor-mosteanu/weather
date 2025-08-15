@@ -1,0 +1,30 @@
+name: Deploy Angular App to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  quality:
+    uses: ./.github/workflows/quality.yml
+    secrets: inherit
+
+  build-and-deploy:
+    uses: ./.github/workflows/build-and-deploy.yml
+    needs: quality
+    secrets: inherit
+
+  release:
+    uses: ./.github/workflows/release.yml
+    needs: build-and-deploy
+    secrets: inherit
