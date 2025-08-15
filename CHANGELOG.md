@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/teodor-mosteanu/weather/compare/v1.1.0...v1.2.0) (2025-08-15)
+
+
+### Features
+
+* add current date to weather app header ([2dd39db](https://github.com/teodor-mosteanu/weather/commit/2dd39dbc924db1846a1b5ebc05013d238c6fb814))
+
 # [1.1.0](https://github.com/teodor-mosteanu/weather/compare/v1.0.0...v1.1.0) (2025-08-15)
 
 
